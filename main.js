@@ -53,7 +53,7 @@ return smallest;
 };
 
 
-    }
+
 
 console.assert(smallestNumber(numbers) === 1, {"message": "smallestNumber should return 1"});
 
@@ -82,10 +82,15 @@ console.assert(getEvens(numbers).toString() === '12,4,18,6', {'message': 'getEve
 // Hint: When looping over the array, start at the last index
 // and decrement the iterator to zero
 // A:
- function reverser(array) {
-  array.reverse();
-  return array;
-};
+function arrayReverser(array) {
+  var reversedArray = [];
+  for (var i = (array.length - 1); i > -1; i--){
+    reversedArray.push(array[i]);
+  }
+  return reversedArray;
+}
+
+
 
 console.assert(arrayReverser(numbers).toString() === '6,5,101,3,11,7,9,18,4,12,1', {'message': 'arrayReverser should return "6,5,101,3,11,7,9,18,4,12,1"'});
 
@@ -96,14 +101,14 @@ var numbers = [1,12,4,18,9,7,11,3,101,5,6];
 // and returns the sum of all of the numbers in the array
 // A:
 
-function arraySum(array){
+function sumArrayOfNumbers(array){
   var sum = 0;
   for (var i = 0; i < array.length; i++){
     sum = array[i] + sum;
   }
   return sum;
 }
-}
+
 
 
 console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumbers should return 177'});
@@ -114,14 +119,15 @@ console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumber
 // and returns an array of only the numbers greater than 10
 // A:
 
-function overTen(array) {
+function numbersOver10(array) {
   var tenPlus = [];
   for (var i = 0; i < array.length; i++) {
     if (array[i] > 10) {
       tenPlus.push(array[i]);
     }
-    return tenPlus;
+
   }
+    return tenPlus;
 }
 
 console.assert(numbersOver10(numbers).toString() === "12,18,11,101", {'message': 'numbersOver10 should return "12,18,11,101"'});
@@ -132,7 +138,7 @@ console.assert(numbersOver10(numbers).toString() === "12,18,11,101", {'message':
 // and returns an array of only the numbers greater than the number passed to the function
 // A:
 
-function greaterThanX(array, number){
+function numbersOverX(array, number){
   var gtx = [];
   for (var i = 0; i < array.length; i++) {
     if(array[i] > number)
